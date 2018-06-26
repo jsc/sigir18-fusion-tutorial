@@ -1,0 +1,9 @@
+[submodule "external/polyfuse"]
+	path = external/polyfuse
+	url = https://github.com/rmit-ir/polyfuse
+[submodule "external/trisk"]
+	path = external/trisk
+	url = https://github.com/rmit-ir/trisk
+[submodule "external/pairwise-ttest"]
+	path = external/pairwise-ttest
+	url = https://github.com/lgrz/pairwise-ttest
