@@ -10,3 +10,4 @@
 [submodule "external/trec_eval"]
 	path = external/trec_eval
 	url = https://github.com/usnistgov/trec_eval
+  ignore = dirty
