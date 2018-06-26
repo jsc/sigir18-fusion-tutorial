@@ -69,6 +69,6 @@ for p in 0.5 0.8 0.95 0.99
 do
   for folder in $DIR/tmp/*
   do
-    $PF $m -p $p $folder/* > out.$m-$p.none.run
+    $PF $m -p $p $folder/* >> out.$m-$p.none.run
   done
 done
