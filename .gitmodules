@@ -7,3 +7,6 @@
 [submodule "external/pairwise-ttest"]
 	path = external/pairwise-ttest
 	url = https://github.com/lgrz/pairwise-ttest
+[submodule "external/trec_eval"]
+	path = external/trec_eval
+	url = https://github.com/usnistgov/trec_eval
