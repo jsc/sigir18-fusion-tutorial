@@ -50,7 +50,7 @@ do
 done
 mv out.* DFRee
 
-echo "Fuse All runs"
+echo "Perform triple fusion at query level"
 ./uqvfuse_all.sh indri-uqv.fdm.qe.run terrier-DLH13_Bo1bfree.uqv.run terrier-DFRee_Bo1bfree.uqv.run 
 echo "Compute MAP for All runs"
 for f in `ls out*.run`
@@ -61,4 +61,6 @@ mv out.* ALL
 
 echo "Dump scores and sort"
 find . -name *.eval | xargs grep map | sort -n -k3 > sorted.txt
+
+echo "See sorted.txt for final run comparisons."
 

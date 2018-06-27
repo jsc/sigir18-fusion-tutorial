@@ -38,24 +38,30 @@ echo "Convert -CE to QL"
 echo "Fuse all runs"
 for m in combsum combmnz combanz combmin combmax combmed
 do
-  $PF $m $SYSN > exp.$m.none.run
-  $PF $m $SYS > orig.$m.none.run
+  echo "Processing exp=true method=$m norm=none"
+  $PF $m $SYSN > exp.$m.none.run  2>debug.log
+  echo "Processing exp=false method=$m norm=none"
+  $PF $m $SYS > orig.$m.none.run 2>debug.log
   for n in sum std minmax minsum
   do
-    $PF $m -n $n $SYSN > exp.$m.$n.run
-    $PF $m -n $n $SYS > orig.$m.$n.run
+    echo "Processing exp=true method=$m norm=$n"
+    $PF $m -n $n $SYSN > exp.$m.$n.run 2>debug.log
+    echo "Processing exp=false method=$m norm=$n"
+    $PF $m -n $n $SYS > orig.$m.$n.run 2>debug.log
   done
 done
 
 for m in borda rrf isr logisr
 do
-  $PF $m $SYS > orig.$m.none.run
+  echo "Processing exp=false method=$m norm=none"
+  $PF $m $SYS > orig.$m.none.run 2>debug.log
 done
 
 m=rbc
 for p in 0.5 0.8 0.95 0.99 
 do
-  $PF $m -p $p $SYS > orig.$m-$p.none.run
+  echo "Processing exp=false method=$m norm=none p=$p"
+  $PF $m -p $p $SYS > orig.$m-$p.none.run 2>debug.log
 done
 
 echo "Compute MAP for all runs"
@@ -65,4 +71,4 @@ do
 done
 
 echo "Dump scores and sort"
-grep map *.eval | sort -n -k3
+grep map *.eval | sort -n -k3 > sorted.txt

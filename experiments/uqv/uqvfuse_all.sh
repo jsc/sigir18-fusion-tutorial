@@ -32,7 +32,7 @@ do
     # We want this to bucket the topic in the correct dir
     # And, we also want it to make sure it's not conflicting with the same ID
     # Which might happen if we were fusing different systems in here as well.
-    echo "$DIR"
+    #echo "$DIR"
     awk -v fcounter=$FCOUNTER -v dir=$DIR '{ split($1, topic, "-"); print topic[1]" "$2" "$3" "$4" "$5" "$6 > dir"/tmp/"topic[1]"/"$1"-"fcounter; }' $uqvfile
     FCOUNTER=$(($FCOUNTER + 1))
 done
@@ -46,29 +46,41 @@ rm -rf $DIR/out.*
 
 for m in combsum combmnz combanz combmin combmax combmed
 do
+  echo "Processing method=$m norm=none"
   for folder in $DIR/tmp/*
   do
-    $PF $m $folder/* >> out.$m.none.run
-    for n in sum std minmax minsum
+    $PF $m $folder/* >> out.$m.none.run 2>debug.log
+  done
+done
+
+for m in combsum combmnz combanz combmin combmax combmed
+do
+  for n in sum std minmax minsum
+  do
+    echo "Processing method=$m norm=$n"
+    for folder in $DIR/tmp/*
     do
-      $PF $m -n $n $folder/* >> out.$m.$n.run
+      $PF $m -n $n $folder/* >> out.$m.$n.run 2>debug.log
     done
   done
 done
 
 for m in borda rrf isr logisr
 do
+  echo "Processing method=$m norm=none"
   for folder in $DIR/tmp/*
   do
-    $PF $m $folder/* >> out.$m.none.run
+    $PF $m $folder/* >> out.$m.none.run 2>debug.log
   done
 done
 
 m=rbc
 for p in 0.5 0.8 0.95 0.99 
 do
+  echo "Processing method=$m norm=none p=$p"
   for folder in $DIR/tmp/*
   do
-    $PF $m -p $p $folder/* >> out.$m-$p.none.run
+    $PF $m -p $p $folder/* >> out.$m-$p.none.run 2>debug.log
   done
 done
+
