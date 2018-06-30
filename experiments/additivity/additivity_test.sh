@@ -23,25 +23,25 @@ xz -d *.xz
 echo "Fuse all runs"
 for m in combsum combmnz combanz combmin combmax combmed
 do
-  echo "Processing exp=true method=$m norm=none"
+  echo "Processing method=$m norm=none"
   $PF $m $SYS > orig.$m.none.run 2>debug.log
   for n in sum std minmax minsum
   do
-    echo "Processing exp=false method=$m norm=$n"
+    echo "Processing method=$m norm=$n"
     $PF $m -n $n $SYS > orig.$m.$n.run 2>debug.log
   done
 done
 
 for m in borda rrf isr logisr
 do
-  echo "Processing exp=false method=$m norm=none"
+  echo "Processing method=$m norm=none"
   $PF $m $SYS > orig.$m.none.run 2>debug.log
 done
 
 m=rbc
 for p in 0.5 0.8 0.95 0.99 
 do
-  echo "Processing exp=false method=$m norm=none p=$p"
+  echo "Processing method=$m norm=none p=$p"
   $PF $m -p $p $SYS > orig.$m-$p.none.run 2>debug.log
 done
 

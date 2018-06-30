@@ -1,1 +1,1 @@
-rm -rf input.* *.eval *.run debug.log *~
+rm -rf input.* *.eval *.run debug.log *~ sorted.txt
