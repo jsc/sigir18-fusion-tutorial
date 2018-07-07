@@ -1,38 +1,38 @@
 ./create_tools.sh
 if [ $? -ne 0 ];
-do
+then
   echo "Compile tools failed. Exiting.
   exit 1
-done
+fi
 cd experiments/additivity
 ./additivity_test.sh
 if [ $? -ne 0 ];
-do
+then
   echo "Additivity test failed. Exiting.
   exit 1
-done
+fi
 cd -
 cd experiments/unexp
 ./negative_test.sh
 if [ $? -ne 0 ];
-do
+then
   echo "Exp test failed. Exiting.
   exit 1
-done
+fi
 cd -
 cd experiments/uqv
 ./uqv_test.sh
 if [ $? -ne 0 ];
-do
+then
   echo "UQV test failed. Exiting.
   exit 1
-done
+fi
 cd -
 cd experiments/risk
 ./test_risk.sh
 if [ $? -ne 0 ];
-do
+then
   echo "Risk test failed. Exiting.
   exit 1
-done
+fi
 cd -
