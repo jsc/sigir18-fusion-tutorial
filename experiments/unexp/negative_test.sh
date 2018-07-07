@@ -36,7 +36,7 @@ echo "Convert -CE to QL"
 ./exp.sh < indri-qe.run > indri-qe.exp.run
 
 echo "Fuse all runs"
-for m in combsum combmnz combanz combmin combmax combmed
+for m in combsum combmnz combanz combmax
 do
   echo "Processing exp=true method=$m norm=none"
   $PF $m $SYSN > exp.$m.none.run  2>debug.log
