@@ -1,1 +1,1 @@
-rm -rf tmp ALL BM25 DFRee DLH13 FDM sorted.txt nums *.run debug.log *~
+rm -rf tmp BM25 DLH13 FDM sorted.txt nums *.run debug.log *~
