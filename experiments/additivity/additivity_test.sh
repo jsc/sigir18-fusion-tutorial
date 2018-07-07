@@ -21,7 +21,7 @@ cp ../../data/robust04-historical/input.* .
 xz -d *.xz
 
 echo "Fuse all runs"
-for m in combsum combmnz combanz combmin combmax combmed
+for m in combsum combmnz combanz combmax
 do
   echo "Processing method=$m norm=none"
   $PF $m $SYS > orig.$m.none.run 2>debug.log
