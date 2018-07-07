@@ -44,7 +44,7 @@ rm -rf $DIR/out.*
 #    $DIR/$PF $POLYPARAM $folder/* >> $DIR/out.txt
 #done
 
-for m in combsum combmnz combanz combmin combmax combmed
+for m in combsum combmnz combanz combmax
 do
   echo "Processing method=$m norm=none"
   for folder in $DIR/tmp/*
@@ -53,7 +53,7 @@ do
   done
 done
 
-for m in combsum combmnz combanz combmin combmax combmed
+for m in combsum combmnz combanz combmax
 do
   for n in sum std minmax minsum
   do
